@@ -92,3 +92,5 @@ turtle.left(180)
 turtle.fd(60)
 turtle.right(90)
 turtle.circle(200, 60)
+
+turtle.done()
