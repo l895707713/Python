@@ -10,7 +10,7 @@
 * eval: 去掉字符串参数最外层的引号，比如"
     eval('1+2')  -> 3
     eval("'1+2'") -> 1+2
-    eval('print("pyCharm")') -> pyCharm
+    eval('print("pyCharm")') -> pyCharm#!/usr/local/bin
 '''
 
 # 温度转换

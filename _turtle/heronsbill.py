@@ -1,16 +1,15 @@
-#!/usr/bin/python
 # coding:utf-8
 
 '''
     太阳花
 '''
 import turtle as t
-import time
+t.speed(1)
 t.color("red", "yellow")
 t.speed(10)
 t.begin_fill()
 for _ in range(50):
     t.forward(200)
     t.left(170)
-end_fill()
-time.sleep(1)
+t.end_fill()
+t.done()

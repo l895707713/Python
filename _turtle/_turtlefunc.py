@@ -19,11 +19,25 @@ startx,starty 表示左上角顶点的位置，以像素为单位，默认窗口
 '''
 turtle.setup(width=0.5, height=0.75, startx=0, starty=0)
 
+# 设置箭头不可见,别名: ht
+turtle.hideturtle()
+# 设置箭头可见，别名: st
+turtle.showturtle()
+# 获取箭头是否可见
+isShow = turtle.isvisible()
+print(isShow)
+# 设置画笔的位置为原点,即为turtle.goto(0,0) turtle.setheading(0)
+turtle.home()
+# 设置画笔的颜色和填充颜色
+turtle.color(color1, color2)
+
+
+'''
 # 画笔相关
 # 设置画笔宽度；别名： width
 turtle.pensize(width=10)
 # 设置画笔的颜色,可使用字符串如"blue"或者RGB值比如(255,2,55)
-turtle.pencolor
+turtle.pencolor('blue')
 # 画笔移动时，不绘制；别名： pu | up
 turtle.penup()
 # 画笔移动时，绘制；别名： pd | down
@@ -49,6 +63,24 @@ turtle.goto(x=0, y=0)
 # 绘制圆.参数依次为半径，角度,绘制的步数
 # 若半径为正，则圆心在画笔的左边，若为负则在画笔的右边；后两个参数可省略，默认为360度，步数为1
 turtle.circle(radius=-100, extent=180, steps=6)
+
+# 设置图形填充颜色，可使用字符串如"blue"或者RGB值比如(255,2,55)
+turtle.fillcolor('red')
+# 设置图形开始填充
+turtle.begin_fill()
+# 设置图形填充完成
+turtle.end_fill()
+
+# 编写文本：
+turtle.write("王 江 烟", move=True, align='left', font=('Arial',30,'normal'))
+# 设置x坐标
+turtle.setx(x=100)
+# 设置y坐标
+turtle.sety(y=100)
+# 设置箭头的朝向,别名： seth
+turtle.setheading(to_angle=90)
+'''
+
 
 
 
