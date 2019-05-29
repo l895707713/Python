@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding:UTF-8 -*-
 import os
+import sys
 import xlrd
 import fnmatch
+
+# 添加设置默认编码，避免python2.7运行报错：UnicodeEncodeError: 'ascii' codec can't encode characters ...
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 '''
 excel 表数据格式：
@@ -157,16 +162,16 @@ def excel2lua(root, filename):
         outname = os.path.splitext(filename)[0] + '_' + sheetNames[index] + '.lua'
         outpath = os.path.join(OUT_PATH, outname)
         newfile = open(outpath, 'w')
-        newfile.write('{\n')
+        newfile.write('local config = {\n')
         for k, v in excel_dict.items():
-            newfile.write('\t[' + str(k) + '] = {\n')
+            newfile.write('\t[' + str(int(k)) + '] = {\n')
             for row_data in v:
                 newfile.write('\t\t{0} = {1},\n'.format(row_data[0], row_data[1]))
             newfile.write('\t},\n')
 
-        newfile.write('}\n')
+        newfile.write('}\n return config\n')
         newfile.close()
-        print('out filename:{}'.format(outpath))
+        print('write filepath:{} sucess'.format(outpath))
 
 
 # 遍历src文件下目录
