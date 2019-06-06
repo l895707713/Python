@@ -33,31 +33,31 @@ class MsgBox:
 
     def _showInfoWnd(self):
        result = mb.showinfo('INFO', '这是个提示框')
-       print(result)        # 返回结果：ok
+       print(result)        # 返回字符串：ok
 
     def _showWarnWnd(self):
         result = mb.showwarning('WARNING', '这是个警告框')
-        print(result)       # 返回结果：ok
+        print(result)       # 返回字符串：ok
 
     def _showErrorWnd(self):
         result = mb.showerror('ERROR', '这是个错误框')
-        print(result)       # 返回结果：ok
+        print(result)       # 返回字符串：ok
 
     def _showAskquestion(self):
         result = mb.askquestion('QUESTION', '这是个显示 是(Y)/否(N) 的提示框')
-        print(result)       # 返回结果：yes/no
+        print(result)       # 返回字符串：yes/no
 
     def _showAskokcancel(self):
         result = mb.askokcancel('QUESTION', '这是个显示 确定/取消 的提示框')
-        print(result)       # 返回结果：True/False
+        print(result)       # 返回bool：True/False
 
     def _showAskyesno(self):
         result = mb.askyesno('QUESTION', '这是个显示 是(Y)/否(N) 的提示框') 
-        print(result)       # 返回结果：True/False
+        print(result)       # 返回bool：True/False
 
     def _showAskyesnocancel(self):
         result = mb.askyesnocancel('QUESTION', '这是显示 是(Y)/否(N)/取消 的提示框')
-        print(result)       # 返回结果：True/False/None
+        print(result)       # 返回bool类型：True/False 或者 None
 
     def _showAskretrycancel(self):
         result = mb.askretrycancel('QUESTION', '这是个显示 重试(R)/取消 的提示框') 
