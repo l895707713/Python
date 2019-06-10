@@ -105,7 +105,7 @@ def getRowList(rowIndex, sheet, headdict):
                 v = 'nil'
             else:
                 v = cell.value
-        if head_type == 'string':
+        elif head_type == 'string':
             # 字符串
             if ctype == 0:
                 v = '\"\"'

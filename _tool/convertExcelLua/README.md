@@ -10,6 +10,7 @@ excel文件可有多个，且每个excel文件中可有多个sheet
 ```
 使用命令：
 python excellua.py
+(注意：不可在打开excel文件的情况下，运行否则会报错)
 ```
 
 #### excel格式设定

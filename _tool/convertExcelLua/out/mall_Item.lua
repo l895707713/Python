@@ -6,7 +6,7 @@ local config = {
 		price = 15000.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1025] = {
@@ -16,7 +16,7 @@ local config = {
 		price = 4688.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1026] = {
@@ -26,7 +26,7 @@ local config = {
 		price = 4788.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1027] = {
@@ -36,7 +36,7 @@ local config = {
 		price = 3200.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1028] = {
@@ -46,7 +46,7 @@ local config = {
 		price = 2888.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1029] = {
@@ -56,7 +56,7 @@ local config = {
 		price = 1268.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1030] = {
@@ -66,7 +66,7 @@ local config = {
 		price = 1588.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1031] = {
@@ -76,7 +76,7 @@ local config = {
 		price = 1200.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1032] = {
@@ -86,7 +86,7 @@ local config = {
 		price = 388.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1033] = {
@@ -96,7 +96,7 @@ local config = {
 		price = 48800.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1034] = {
@@ -106,7 +106,7 @@ local config = {
 		price = 25800.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1035] = {
@@ -116,7 +116,7 @@ local config = {
 		price = 11500.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1036] = {
@@ -126,7 +126,7 @@ local config = {
 		price = 32900.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1037] = {
@@ -136,7 +136,7 @@ local config = {
 		price = 22800.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1038] = {
@@ -146,7 +146,7 @@ local config = {
 		price = 11900.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1007] = {
@@ -156,7 +156,7 @@ local config = {
 		price = 5000.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1008] = {
@@ -166,7 +166,7 @@ local config = {
 		price = 7000.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1009] = {
@@ -176,7 +176,7 @@ local config = {
 		price = 5000.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1010] = {
@@ -186,7 +186,7 @@ local config = {
 		price = 5000.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 0.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1011] = {
@@ -196,7 +196,7 @@ local config = {
 		price = 5000.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1012] = {
@@ -206,7 +206,7 @@ local config = {
 		price = 10000.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1013] = {
@@ -216,7 +216,7 @@ local config = {
 		price = 18000.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1014] = {
@@ -226,7 +226,7 @@ local config = {
 		price = 9800.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1015] = {
@@ -236,7 +236,7 @@ local config = {
 		price = 6800.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1016] = {
@@ -246,7 +246,7 @@ local config = {
 		price = 22800.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1017] = {
@@ -256,7 +256,7 @@ local config = {
 		price = 138800.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1018] = {
@@ -266,7 +266,7 @@ local config = {
 		price = 142000.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1019] = {
@@ -276,7 +276,7 @@ local config = {
 		price = 72800.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1020] = {
@@ -286,7 +286,7 @@ local config = {
 		price = 48800.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1021] = {
@@ -296,7 +296,7 @@ local config = {
 		price = 50000.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 0.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1022] = {
@@ -306,7 +306,7 @@ local config = {
 		price = 36800.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 	[1023] = {
@@ -316,7 +316,7 @@ local config = {
 		price = 10800.0,
 		cursale = 10.0,
 		totalsale = 1000.0,
-		isEmail = 1.0,
+		isEmail = true,
 		updateTime = 2018-11-09 00:00:00,
 	},
 }
