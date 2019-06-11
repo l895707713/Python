@@ -9,42 +9,10 @@ import fnmatch
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-'''
-excel 表数据格式：
-# 前三行分别为： 中文名称，英文, 数据类型
-商品ID	商品名称	道具数量	商品价格	商品当前库存	总库存	有否邮箱发送	开始刷新时间
-itemId	itemName  int	  int	  int	     int	  isEmail	updateTime
-number	string	 number	 number	  number	number	   bool	      date
-
-# 若数字为空，则默认为'nil'
-1007	食用油1升	1	5000	10	1000	1	2018-11-09 00:00:00
-1008	烧烤架	1	7000	10	1000	1	2018-11-09 00:00:00
-1009	煮蛋器	1	5000	10	1000	1	2018-11-09 00:00:00
-1010	护眼小台灯	1	5000	10	1000	0	2018-11-09 00:00:00
-1011	50元充值卡	1	5000	10	1000	1	2018-11-09 00:00:00
-'''
-
 # 源文件目录路径
 SRC_PATH = 'src'
 # 输出文件目录路径
 OUT_PATH = 'out'
-# 表头数据
-'''
-headdict = {
-    # 主要用于注释
-    [1] = ['商品ID', '商品介绍', '商品价格', ...],
-    # 如果参数存在"_"，比如：_itemState表示此处列数据忽略
-    [2] = ['itemId', 'itemState', 'price', ...], 
-    # 主要用于判定数据的类型，类型主要有如下几种：
-        bool: 布尔类型，若为0，转换为false, 若为 > 1 的数值，转换为true
-        number: 数字，包含整型，浮点型等
-        string: 字符串
-        data: 表数据，推荐格式:{100,1,30} 或者 {{1,2,3}, {3,4,5}}
-        date: 日期,类似于2010-08-09 12:00 
-    [3] = ['number','string','number', ...],
-}
-'''
-
 
 # 获取表头数据相关，即前三行的中文名，英文名，类型
 def getHeadDict(sheet):
@@ -56,15 +24,6 @@ def getHeadDict(sheet):
             cell = sheet.cell(row, col)         # 获取单元格对象
             celltype = cell.ctype               # 获取单元格数据类型
             cellvalue = cell.value              # 获取单元格数值
-            '''
-            cell.ctype的几种属性：
-                0：empty
-                1：string
-                2：number
-                3：date
-                4：boolean
-                5：error
-            '''
             if(celltype != 1):
                 print('[excel] sheet found invalid col name, col:' + str(col))
             else:
@@ -73,6 +32,24 @@ def getHeadDict(sheet):
         # 将列表存储到字典中
         headdict[row] = _list
     return headdict
+
+
+# 获取注释文本内容
+def getAnnotationContent(headdict):
+    cols = len(headdict[0])
+    newStr = ''
+    for index in range(cols):
+        lineStr = ''
+        _var = headdict[1][index]       # 变量
+        _type = headdict[2][index]      # 类型
+        _state = headdict[0][index]     # 注释
+        lineStr = '\t{var}:[{type}] {state}\n'.format(var=_var, type=_type, state=_state)
+        newStr += lineStr
+
+    content = '--[[\n'
+    content += newStr
+    content += ']]\n'
+    return content
 
 
 # 解析每行数据
@@ -99,12 +76,18 @@ def getRowList(rowIndex, sheet, headdict):
                     v = 'true'
                 else:
                     v = 'false'
-        elif head_type == 'number':
-            # 数字
+        elif head_type == 'float':
+            # 浮点型
             if ctype == 0:
                 v = 'nil'
             else:
-                v = cell.value
+                v = float(cell.value)
+        elif head_type == 'int':
+            # 整型
+            if ctype == 0:
+                v = 'nil'
+            else:
+                v = int(cell.value)
         elif head_type == 'string':
             # 字符串
             if ctype == 0:
@@ -135,8 +118,9 @@ def excel2lua(root, filename):
     workbook = xlrd.open_workbook(filepath, encoding_override='utf-8')
     # 获取所有工作表的名字
     sheetNames = workbook.sheet_names()
+    sheetnum = len(sheetNames)
     # 遍历sheets表
-    for index in range(len(sheetNames)):
+    for index in range(sheetnum):
         # 通过索引顺序获取指定工作表数据
         sheet = workbook.sheet_by_index(index)
         rows = sheet.nrows  # 获取指定工作表的有效行数
@@ -158,18 +142,32 @@ def excel2lua(root, filename):
             # 获取指定行数据，并将数据存储到列表中
             excel_dict[value] = getRowList(row, sheet, headdict)
 
-        # 写入文件，输出文件名格式为: excelname_sheetname.lua
-        outname = os.path.splitext(filename)[0] + '_' + sheetNames[index] + '.lua'
-        outpath = os.path.join(OUT_PATH, outname)
-        newfile = open(outpath, 'w')
-        newfile.write('local config = {\n')
-        for k, v in excel_dict.items():
-            newfile.write('\t[' + str(int(k)) + '] = {\n')
-            for row_data in v:
-                newfile.write('\t\t{0} = {1},\n'.format(row_data[0], row_data[1]))
-            newfile.write('\t},\n')
+        #----------------------- 写入文件 -----------------------#
+        # 命名
+        if(sheetnum > 1):
+            outname = os.path.splitext(filename)[0] + '_' + sheetNames[index] + 'Config'
+        else:
+            outname = os.path.splitext(filename)[0] + 'Config'
+        outpath = os.path.join(OUT_PATH, outname + '.lua')
 
-        newfile.write('}\n return config\n')
+        # 打开文件
+        newfile = open(outpath, 'w')
+
+        # 写入注释
+        annotation = getAnnotationContent(headdict)
+        newfile.write(annotation)
+
+        # 写入脚本
+        newfile.write('local {0}'.format(outname))
+        newfile.write(' = {\n')
+        for k, v in excel_dict.items():
+            newfile.write('\t[' + str(int(k)) + '] = {')
+            for row_data in v:
+                newfile.write('{0} = {1},'.format(row_data[0], row_data[1]))
+            newfile.write('},\n')
+
+        newfile.write('}\n')
+        newfile.write('return {0}'.format(outname))
         newfile.close()
         print('write filepath:{} sucess'.format(outpath))
 
