@@ -2,11 +2,12 @@
 #!/usr/bin/env python
 
 '''
-二分查找又称折半查找
-优点： 比较次数少，查找速度快，平均性能好
-缺点：其表数据为有序表，且插入删除困难
-适用于不经常变动而查找频繁的有序列表
-最优/最坏时间复杂度:O(1) ~ O(logN)
+二分查找
+
+简介: 又称折半查找,适用于不经常变动而查找频繁的有序列表
+优点: 比较次数少，查找速度快，平均性能好
+缺点: 其表数据为有序表，且插入删除困难
+时间: O(logN)
 '''
 
 # UnicodeEncodeError: 'ascii' codec can't encode characters in position 0-1: ordinal not in range
